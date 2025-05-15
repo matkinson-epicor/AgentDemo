@@ -1,9 +1,11 @@
 :root {
-  --primary-color: #3498db;
-  --secondary-color: #2c3e50;
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
   --accent-color: #e74c3c;
   --light-color: #ecf0f1;
   --dark-color: #2c3e50;
+  --text-color: #333;
+  --text-light: #7f8c8d;
 }
 
 html {
@@ -17,7 +19,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--primary-color);
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--secondary-color);
 }
 
 html {
@@ -28,72 +30,74 @@ html {
 body {
   margin-bottom: 60px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--dark-color);
-  background-color: #f8f9fa;
+  color: var(--text-color);
+  background-color: #f9f9f9;
 }
 
-/* Banner Header */
+/* Banner Header Styles */
 .banner-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
-  padding: 3rem 0;
+  padding: 2rem 0;
   margin-bottom: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.banner-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.banner-header p {
+.banner-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.banner-text p {
   font-size: 1.2rem;
   opacity: 0.9;
 }
 
 .logo-container {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  max-width: 200px;
 }
 
-.logo-container img {
-  max-height: 60px;
-}
-
-/* Navigation */
+/* Navbar Styles */
 .navbar {
-  background-color: white !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: var(--primary-color) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1rem;
 }
 
 .navbar-brand {
   font-weight: 700;
-  color: var(--primary-color) !important;
+  color: white !important;
 }
 
 .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
   font-weight: 500;
-  color: var(--dark-color) !important;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--primary-color) !important;
+  color: white !important;
 }
 
-/* Cards */
+/* Card Styles */
 .card {
   border: none;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 1.5rem;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
@@ -101,7 +105,6 @@ body {
   color: white;
   border-radius: 8px 8px 0 0 !important;
   font-weight: 600;
-  padding: 0.75rem 1.25rem;
 }
 
 .card-header h3 {
@@ -109,20 +112,45 @@ body {
   margin-bottom: 0;
 }
 
-.list-group-item {
-  border-left: none;
-  border-right: none;
-  padding: 0.75rem 1.25rem;
-}
-
-/* Footer */
+/* Footer Styles */
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
-  background-color: var(--light-color);
-  color: var(--dark-color);
-  border-top: 1px solid #dee2e6;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.footer a {
+  color: var(--secondary-color);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+/* Section Styles */
+.section-title {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary-color);
 }
