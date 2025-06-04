@@ -3,8 +3,8 @@ using AgentDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Xunit;
 using System.Collections.Generic;
+using Xunit;
 
 namespace AgentDemo.Tests;
 
@@ -20,14 +20,24 @@ public class HomeControllerTests
     }
 
     [Fact]
-    public void Index_ReturnsViewResult_WithNewsArticles()
+    public void Index_ReturnsViewResult()
     {
         // Act
         var result = _controller.Index();
 
         // Assert
-        var viewResult = Assert.IsType<ViewResult>(result);
-        var model = Assert.IsAssignableFrom<List<NewsArticleViewModel>>(viewResult.Model);
+        Assert.IsType<ViewResult>(result);
+    }
+    
+    [Fact]
+    public void Index_ReturnsNewsArticles()
+    {
+        // Act
+        var result = _controller.Index() as ViewResult;
+        
+        // Assert
+        Assert.NotNull(result);
+        var model = Assert.IsAssignableFrom<List<NewsArticleViewModel>>(result.Model);
         Assert.NotEmpty(model);
     }
 

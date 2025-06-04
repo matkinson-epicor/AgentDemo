@@ -1,8 +1,8 @@
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using AgentDemo.Models;
-using System.Collections.Generic;
-using System;
 
 namespace AgentDemo.Controllers;
 
@@ -28,27 +28,35 @@ public class HomeController : Controller
         {
             new NewsArticleViewModel
             {
-                Title = "Company Launches Revolutionary New Product",
-                Description = "Our latest innovation is changing the industry with breakthrough technology and exceptional performance.",
-                ImageUrl = "/images/logo.svg",
-                LinkUrl = "#product-launch",
-                PublicationDate = DateTime.Now.AddDays(-5)
+                Title = "AgentDemo Secures $10M in Series A Funding",
+                Summary = "Our company has secured significant funding to accelerate growth and product development.",
+                ImageUrl = "/images/news-funding.jpg",
+                LinkUrl = "#funding-news",
+                PublishedDate = DateTime.Now.AddDays(-5)
             },
             new NewsArticleViewModel
             {
-                Title = "AgentDemo Wins Industry Excellence Award",
-                Description = "Our commitment to quality and innovation has been recognized with the prestigious Industry Excellence Award.",
-                ImageUrl = "/images/logo.svg",
-                LinkUrl = "#award-announcement",
-                PublicationDate = DateTime.Now.AddDays(-14)
+                Title = "New Partnership Announced with Microsoft",
+                Summary = "We're excited to announce our strategic partnership with Microsoft to enhance our cloud offerings.",
+                ImageUrl = "/images/news-partnership.jpg",
+                LinkUrl = "#partnership-news",
+                PublishedDate = DateTime.Now.AddDays(-12)
             },
             new NewsArticleViewModel
             {
-                Title = "New Partnership Announcement",
-                Description = "We're excited to announce our strategic partnership with a leading technology provider to enhance our service offerings.",
-                ImageUrl = "/images/logo.svg",
-                LinkUrl = "#partnership",
-                PublicationDate = DateTime.Now.AddDays(-30)
+                Title = "AgentDemo Wins Innovation Award 2023",
+                Summary = "Our team's hard work has been recognized with the prestigious Innovation Award for our AI solutions.",
+                ImageUrl = "/images/news-award.jpg",
+                LinkUrl = "#award-news",
+                PublishedDate = DateTime.Now.AddDays(-20)
+            },
+            new NewsArticleViewModel
+            {
+                Title = "AgentDemo Expands to European Market",
+                Summary = "We're thrilled to announce our expansion into the European market with new offices in London and Berlin.",
+                ImageUrl = "/images/news-expansion.jpg",
+                LinkUrl = "#expansion-news",
+                PublishedDate = DateTime.Now.AddDays(-30)
             }
         };
     }
