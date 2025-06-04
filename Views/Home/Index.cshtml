@@ -1,3 +1,4 @@
+@model List<NewsArticleViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -5,6 +6,37 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to AgentDemo</h1>
     <p class="lead">A .NET 9 ASP.NET Core web application created with Amazon Q Agent</p>
+    
+    <!-- In the News Section with Sliding Panel/Banner -->
+    <div class="news-section mt-5">
+        <h2 class="section-title text-center">In the News</h2>
+        <div class="news-carousel-container">
+            <div class="news-carousel">
+                @foreach (var article in Model)
+                {
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img src="@article.ImageUrl" alt="@article.Title" class="img-fluid rounded">
+                        </div>
+                        <div class="news-content">
+                            <h3>@article.Title</h3>
+                            <p class="news-date">@article.PublishedDate.ToString("MMMM dd, yyyy")</p>
+                            <p>@article.Summary</p>
+                            <a href="@article.LinkUrl" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="carousel-indicators">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <button type="button" data-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="@(i == 0 ? "true" : "false")"></button>
+                }
+            </div>
+        </div>
+    </div>
     
     <div class="mt-5">
         <h2>About This Application</h2>
@@ -66,3 +98,12 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Initialize the news carousel when the document is ready
+        $(document).ready(function() {
+            initNewsCarousel();
+        });
+    </script>
+}

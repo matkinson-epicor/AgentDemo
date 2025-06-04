@@ -154,3 +154,121 @@ body {
   height: 3px;
   background-color: var(--secondary-color);
 }
+
+/* News Section Styles */
+.news-section {
+  margin: 3rem 0;
+  padding: 1rem 0;
+}
+
+.news-section .section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.news-section .section-title:after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.news-carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.news-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.news-item {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .news-item {
+    flex-direction: row;
+  }
+}
+
+.news-image {
+  flex: 0 0 40%;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.news-date {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.news-content p {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.news-content .btn {
+  align-self: flex-start;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background-color: var(--secondary-color);
+}
