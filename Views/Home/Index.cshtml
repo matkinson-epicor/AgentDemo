@@ -1,3 +1,4 @@
+@model List<AgentDemo.Models.NewsArticleViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -62,6 +63,27 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- In the News Section -->
+        <div class="mt-5">
+            <h2 class="mb-4">In the News</h2>
+            <div class="row">
+                @foreach (var article in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="@article.ImageUrl" class="card-img-top p-3" alt="@article.Title" style="max-height: 150px; object-fit: contain;">
+                            <div class="card-body">
+                                <h5 class="card-title">@article.Title</h5>
+                                <p class="card-text">@article.Description</p>
+                                <p class="card-text"><small class="text-muted">Published on @article.PublicationDate.ToString("MMMM dd, yyyy")</small></p>
+                                <a href="@article.LinkUrl" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
